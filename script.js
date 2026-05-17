@@ -51,7 +51,8 @@ let currentSelectedMonth = "";
 // 残高と履歴を読み込み
 async function loadData() {
   const q = query(collection(db, "history"), 
-    where("userName", "==", USER_NAME));
+    where("userName", "==", USER_NAME),
+    orderBy("createDate", "desc"));
   const snapshot = await getDocs(q);
   let balance = 0;
   const historyArea = document.getElementById("historyArea");
