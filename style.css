@@ -234,12 +234,12 @@ body {
     .input-group {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
       font-weight: bold;
     }
     .input-group label {
-      width: auto;         /* 文字の長さに合わせて自動で縮める */
-  min-width: 65px;
+      width: auto;
+      min-width: 75px;
       margin-top: 5px;
     }
     .input-group input, .input-group textarea {
