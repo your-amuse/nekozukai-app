@@ -234,7 +234,7 @@ body {
     .input-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
       font-weight: bold;
     }
     .input-group label {
@@ -319,13 +319,25 @@ body {
   box-sizing: border-box;
 }
 
-/* ログイン用の入力グループ（縦並びにする） */
+/* ログイン用の入力グループ */
 .login-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 20px; /* 要素同士の間隔を20pxに（好みに合わせて15px〜30pxくらいで調整してね） */
   width: 100%;
+}
+
+/* ねこ画像（普通に並べて真ん中配置） */
+.login-cat-icon {
+  /* absolute関連の記述（position, top, left, transform）はすべて削除！ */
+  
+  display: block; /* 確実中央に寄せるためのお守り */
+  margin: 0 auto; /* 左右の余白を自動調整して真ん中（center）に配置 */
+  
+  width: auto;
+  height: 100px; /* お好みの大きさに調整してください（100px〜120pxくらいがおすすめ） */
+  pointer-events: none;
 }
 
 /* おなまえ入力欄 */
@@ -346,15 +358,4 @@ body {
   height: 60px !important;
   font-size: 24px;
   margin-bottom: 0;
-}
-
-.login-cat-icon {
-  position: absolute;
-  top: 495px;
-  transform: translateY(-50%);
-  left: 150px; /* 左端から20px内側に浮かせる */
-  
-  width: auto;
-  height: 120px; /* ボタンの縦幅が60pxなので、45pxくらいが綺麗に収まります */
-  pointer-events: none; /* タップしたときにボタンの邪魔をしないお守り */
 }
