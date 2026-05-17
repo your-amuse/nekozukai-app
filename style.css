@@ -1,0 +1,360 @@
+body {
+  margin: 0;
+  background: url("/img/back.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family:"Kiwi Maru", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* 全体 */
+.app-container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ユーザー名表示ボックス */
+.user-name-box {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-left: 30px;
+  position: absolute;
+  top: 15px;
+  left: -15px;
+}
+.user-name-box:hover {
+  background-color: #f5f5f5;
+}
+
+/* タイトルロゴのスタイル */
+.app-logo {
+  width: 280px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  object-fit: contain;
+}
+
+/* 残高表示 */
+.balance-box {
+  width: 360px;
+  height: 150px;
+
+  background-color: white;
+
+  border: 5px solid black;
+  border-radius: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 30px;
+  box-sizing: border-box;
+  margin-top: 220px;
+  margin-bottom: 45px;
+}
+
+.balance-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.balance-money {
+  font-size: 52px;
+  margin: 5px 0 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 共通ボタン */
+.btn {
+  width: 330px;
+  height: 97px;
+
+  border: 5px solid black;
+  border-radius: 20px;
+
+  font-size: 32px;
+  margin-bottom: 30px;
+
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* つかうボタン */
+.use-btn {
+  background-image: url("img/useBtn.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* もらうボタン */
+.get-btn {
+  background-image: url("img/getBtn.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* りれきボタン */
+.history-btn {
+  background-image: url("img/historyBtn.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.history-area {
+
+  width: 300px;
+
+  margin-top: 30px;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+
+}
+
+
+.history-item {
+
+  background-color: white;
+
+  border: 3px solid black;
+
+  border-radius: 15px;
+
+  padding: 10px;
+
+  margin-bottom: 15px;
+
+}
+
+
+.history-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+}
+
+
+.history-date {
+
+  margin-top: 5px;
+
+  font-size: 14px;
+
+  color: gray;
+
+}
+
+
+.plus {
+
+  color: green;
+
+}
+
+
+.minus {
+
+  color: red;
+
+}
+
+/* モーダルの背景（半透明の黒） */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* モーダル本体（手書き風の太枠） */
+    .modal-content {
+      background-image: url("/img/back_modal.jpg");
+      padding: 20px;
+      border: 4px solid #000;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 右上の切り替えボタン */
+    .modal-header {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .type-toggle {
+      display: flex;
+      border: 3px solid #000;
+    }
+    .toggle-btn {
+      padding: 5px 10px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: opacity 0.2s;
+    }
+    .toggle-btn.use-type {
+      background-color: #ff99aa; /* ピンク */
+      border-right: 3px solid #000;
+    }
+    .toggle-btn.get-type {
+      background-color: #99ff99; /* 緑 */
+    }
+    /* 非活性状態（薄くする） */
+    .toggle-btn.inactive {
+      opacity: 0.3;
+    }
+
+    /* 入力フォーム部分 */
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+    }
+    .input-group label {
+      width: auto;         /* 文字の長さに合わせて自動で縮める */
+  min-width: 65px;
+      margin-top: 5px;
+    }
+    .input-group input, .input-group textarea {
+      border: 3px solid #000;
+      padding: 8px;
+      font-size: 16px;
+      flex-grow: 1;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .input-group textarea {
+      height: 80px;
+      resize: none;
+    }
+    .unit {
+      margin-top: 8px;
+    }
+
+    /* 右下のボタン */
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .action-btn {
+      border: 3px solid #000;
+      background: #fff;
+      padding: 5px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .action-btn:hover {
+      background: #eee;
+    }
+
+    /* 履歴エリアの背景（グレーのボックス） */
+.history-area {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff; /* イメージ図通りの薄いグレー */
+  padding: 15px;
+  box-sizing: border-box;
+  border: 3px solid #000;
+  border-radius: 10px;
+}
+
+/* 履歴の各項目をリンクっぽくする */
+.history-item {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.history-item:hover {
+  background-color: #f5f5f5;
+}
+.history-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   ログイン画面（login.html）専用スタイル
+   ========================================== */
+
+/* 中央のお名前入力ボックス */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 20px;
+  border: 5px solid #000;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+/* ログイン用の入力グループ（縦並びにする） */
+.login-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+/* おなまえ入力欄 */
+.login-input {
+  border: 3px solid #000;
+  padding: 12px;
+  font-size: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  text-align: center;
+  background: white;
+}
+
+/* ログイン画面専用の決定ボタン（サイズ調整） */
+.login-btn {
+  width: 100% !important;
+  height: 60px !important;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.login-cat-icon {
+  position: absolute;
+  top: 495px;
+  transform: translateY(-50%);
+  left: 150px; /* 左端から20px内側に浮かせる */
+  
+  width: auto;
+  height: 120px; /* ボタンの縦幅が60pxなので、45pxくらいが綺麗に収まります */
+  pointer-events: none; /* タップしたときにボタンの邪魔をしないお守り */
+}
